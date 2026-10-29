@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="100" y1="70" x2="950" y2="1000" gradientUnits="userSpaceOnUse"><stop stop-color="#fff8ef"/><stop offset=".6" stop-color="#f6dfda"/><stop offset="1" stop-color="#ddb0bc"/></linearGradient>
+    <radialGradient id="petal"><stop stop-color="#fff9ef"/><stop offset="1" stop-color="#ecc7cc"/></radialGradient>
+    <g id="flower">
+      <ellipse cy="-33" rx="31" ry="54" fill="url(#petal)" stroke="#e2b7bf" stroke-width="2"/>
+      <ellipse cy="-33" rx="31" ry="54" transform="rotate(72)" fill="url(#petal)" stroke="#e2b7bf" stroke-width="2"/>
+      <ellipse cy="-33" rx="31" ry="54" transform="rotate(144)" fill="url(#petal)" stroke="#e2b7bf" stroke-width="2"/>
+      <ellipse cy="-33" rx="31" ry="54" transform="rotate(216)" fill="url(#petal)" stroke="#e2b7bf" stroke-width="2"/>
+      <ellipse cy="-33" rx="31" ry="54" transform="rotate(288)" fill="url(#petal)" stroke="#e2b7bf" stroke-width="2"/>
+      <circle r="15" fill="#c99a65"/><circle r="6" fill="#ecd3a5"/>
+    </g>
+  </defs>
+  <rect x="32" y="32" width="960" height="960" rx="222" fill="url(#bg)"/>
+  <rect x="53" y="53" width="918" height="918" rx="203" stroke="#fff8ef" stroke-opacity=".7" stroke-width="3"/>
+  <circle cx="510" cy="510" r="298" stroke="#ae7a81" stroke-width="5" stroke-opacity=".7"/>
+  <circle cx="510" cy="510" r="280" stroke="#c69997" stroke-width="2" stroke-opacity=".45"/>
+  <path d="M300 659c61 9 80-36 98-92l79-223-20 296c-2 24 6 28 19 3l154-296-64 256c-17 68-3 90 49 51" stroke="#985c70" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M373 365c38-39 78-42 104-21m153 3c18-30 53-28 66-10" stroke="#985c70" stroke-width="8" stroke-linecap="round"/>
+  <path d="M243 744c-67-111-81-240-27-338m4 253c-56-16-88-61-84-105 57 9 85 49 84 105Zm-24-116c48-11 79-49 78-89-48 4-77 38-78 89ZM708 269c70 49 118 135 121 236m-48-113c38-13 62-42 60-73-35 1-61 28-60 73Zm31 62c-40-1-68-27-73-61 38-4 66 20 73 61Z" fill="#a9b398" stroke="#8d9c7c" stroke-width="5" stroke-linejoin="round"/>
+  <use href="#flower" transform="translate(243 718)"/>
+  <use href="#flower" transform="translate(749 306) scale(.8)"/>
+  <path d="m763 691 9 25 26 9-26 10-9 25-10-25-25-10 25-9ZM273 270l6 17 18 6-18 7-6 17-7-17-17-7 17-6Z" fill="#c49b71"/>
+</svg>

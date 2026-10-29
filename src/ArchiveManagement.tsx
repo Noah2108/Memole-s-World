@@ -1,0 +1,12 @@
+import { History, RotateCcw } from 'lucide-react';
+import type { State } from './domain';
+import type { SafetyCopy } from './persistence';
+import type { ManagementSpec } from './ManagementDialog';
+import { SectionHead } from './components';
+
+export function ArchiveManagement({ state, copies, copiesError, onManage, onRestore }: { state: State; copies: SafetyCopy[]; copiesError: string; onManage: (spec: ManagementSpec) => void; onRestore: (state: State) => void }) {
+  return <>
+    <section className="panel padded safety-panel"><SectionHead title="Punti di ripristino"><span className="badge green"><History size={12}/> Ultime 5 copie</span></SectionHead><p className="body-copy">Prima di eliminare, correggere i dati economici o azzerare l’archivio, Memole's World conserva automaticamente la situazione precedente. Da qui puoi ritrovarla.</p>{copiesError && <p className="alert" role="alert">{copiesError}</p>}{!copies.length && !copiesError && <p className="muted">Ancora nessuna operazione da recuperare. Le copie verranno create quando servono.</p>}{[...copies].reverse().map(copy => <div className="safety-row" key={copy.id}><div><strong>{copy.label}</strong><small>{new Intl.DateTimeFormat('it-IT', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(copy.createdAt))} · {copy.state.children.length} bambini · {copy.state.charges.length} rette · {copy.state.payments.length} pagamenti</small></div><button className="button secondary" aria-label={`Ripristina copia ${copy.label}`} onClick={() => onRestore(copy.state)}><RotateCcw size={14}/>Ripristina</button></div>)}</section>
+    <section className="panel padded reset-panel"><SectionHead title="Metti ordine o ricomincia"/><p className="body-copy">Scegli quanto vuoi azzerare. Prima di procedere vedrai il riepilogo e dovrai confermare scrivendo AZZERA.</p><div className="reset-options"><article><h3>Azzera rette e pagamenti</h3><p>Conserva i {state.children.length} bambini, i tutori, gli accordi e il diario. Rimuove tutte le rette e tutti i pagamenti.</p><button className="button secondary" onClick={() => onManage({ kind: 'manage', action: 'reset-finance' })}>Azzera solo rette e pagamenti</button></article><article><h3>Riparti completamente da zero</h3><p>Svuota bambini, tutori, accordi, rette, pagamenti e diario. Alla riapertura l’archivio rimarrà vuoto.</p><button className="button danger-outline" onClick={() => onManage({ kind: 'manage', action: 'reset-all' })}>Riparti da zero</button></article></div></section>
+  </>;
+}

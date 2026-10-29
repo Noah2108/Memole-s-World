@@ -1,0 +1,52 @@
+[
+  {
+    "path": "public/fonts/allura-OFL.txt",
+    "bytes": 4478,
+    "sha256": "c8cb4c94a558b6cb82ac5dc981a73a0b8aee35a5c52c8a7832fc0280c289ad49"
+  },
+  {
+    "path": "public/fonts/Allura-Regular.ttf",
+    "bytes": 246632,
+    "sha256": "9c142b2e515832c0dfc4ff8b8ea18f40314943bf937b72e2b23c4661bac14cc6"
+  },
+  {
+    "path": "public/fonts/CormorantGaramond-Italic-Variable.ttf",
+    "bytes": 715644,
+    "sha256": "0f48ea6abb2084537854f7174c470991a463b13036309e3b50a81511611c530d"
+  },
+  {
+    "path": "public/fonts/cormorantgaramond-OFL.txt",
+    "bytes": 4387,
+    "sha256": "60700d351cac4650c51f3f9db318d2a420f8b45052dba2715eb5fec41f0f6956"
+  },
+  {
+    "path": "public/fonts/CormorantGaramond-Variable.ttf",
+    "bytes": 1195560,
+    "sha256": "b20b7d9626dd956b2c5e558692ad328b1f19e3275e2782db4fa07670d83f35e0"
+  },
+  {
+    "path": "public/fonts/Lora-Italic-Variable.ttf",
+    "bytes": 221232,
+    "sha256": "22d8d8854b53807aa664ca34f2031a9ed57a1d0dea296b8b96cdd3aad937a2b3"
+  },
+  {
+    "path": "public/fonts/lora-OFL.txt",
+    "bytes": 4423,
+    "sha256": "1d9a970809ac804b582a6ce7f0ebc4e7fefcbfd7ff6299cad35ee656a21be716"
+  },
+  {
+    "path": "public/fonts/Lora-Variable.ttf",
+    "bytes": 212196,
+    "sha256": "822a6621ccbe8d97d20ac88c1c41f5615c9c2c202eaa75f272cd452aac6475a7"
+  },
+  {
+    "path": "public/art/botanical-corner-v013.png",
+    "bytes": 2144970,
+    "sha256": "9d1aba45348cbf3241b04cda25602b25f236aee7b20a64a88964293941241e65"
+  },
+  {
+    "path": "public/art/garden-welcome-v013.png",
+    "bytes": 2341311,
+    "sha256": "0955b69762d2b64d36dcc7c9788a38f75ea47a46b1c846109b1fc6d9e9625db9"
+  }
+]
