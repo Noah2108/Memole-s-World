@@ -1,0 +1,64 @@
+name: Memole's World - Mac ARM64
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: macos-arm64-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 60
+    env:
+      MACOSX_DEPLOYMENT_TARGET: '13.0'
+      CARGO_BUILD_JOBS: '2'
+      APPLE_SIGNING_IDENTITY: '-'
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: '24.22.1'
+          cache: npm
+      - name: Verify Apple Silicon runner
+        run: test "$(uname -m)" = arm64
+      - name: Install the locked JavaScript dependencies
+        run: npm ci
+      - name: Validate archive logic and build the existing interface
+        run: npm run check
+      - name: Install WebKit for UI checks
+        run: npx --no-install playwright install webkit
+      - name: Run UI checks in WebKit (not a Ventura certification)
+        run: npm run test:e2e:webkit
+      - name: Install the Rust toolchain and ARM64 target
+        run: |
+          rustup toolchain install 1.99.1 --profile minimal
+          rustup override set 1.99.1
+          rustup target add aarch64-apple-darwin
+      - name: Build the native app and DMG with ad hoc signing
+        run: npm run desktop:build:mac
+      - name: Verify and package Mac artifacts
+        run: python3 scripts/verify-macos.py
+      - name: Upload app ZIP, DMG, checksums and installation guide
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: Memoles-World-macOS13-ARM64-${{ github.run_number }}
+          path: deliverables/macos-arm64/
+          if-no-files-found: error
+          retention-days: 30
+      - name: Preserve UI reports even on failure
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: Mac-WebKit-report-${{ github.run_number }}
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore
+          retention-days: 14
